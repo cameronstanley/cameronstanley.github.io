@@ -1,10 +1,10 @@
 # Site settings
-title: Cameron Stanley's Blog 
-email: 
-description: 
+title: Cameron Stanley 
+email: me@cameronstanley.com 
+description: Creating things and writing about them. 
 baseurl: "" 
 url: "http://cameronstanley.com"
-twitter_username:  
+twitter_username: "@camerons_23"
 github_username: cameronstanley 
 
 # Build settings
