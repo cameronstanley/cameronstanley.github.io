@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "First"
+date:   2015-05-28 15:15:39
+categories: general
+---
+
+I'm starting this blog to keep up with things I learn or find interesting related to programming and software engineering, with the hopes it will help someone else. I'm currently a senior software engineer at [Temenos](http://www.temenos.com/en-us/) working on banking channel products. I've primarily worked on projects written in Ruby on Rails, Java, and Objective-C, but lately I have been getting into Node.js, Go, and Swift. 
+
+The plan is to churn out at least one entry per week, so be sure to keep an eye out for updates.  

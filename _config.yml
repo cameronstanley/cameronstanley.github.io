@@ -1,0 +1,11 @@
+# Site settings
+title: Cameron Stanley's Blog 
+email: 
+description: 
+baseurl: "" 
+url: "http://cameronstanley.com"
+twitter_username:  
+github_username: cameronstanley 
+
+# Build settings
+markdown: kramdown
