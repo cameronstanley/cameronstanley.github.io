@@ -2,22 +2,25 @@
 layout: default
 ---
 
-<div class="home">
+<header class='container-fluid container-header'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <img src='/assets/avatar.jpg' class='container-header-avatar img-circle'>
+      <h1 class='container-header-title'>Cameron Stanley</h1>
+      <h2 class='container-header-tagline'>Rails, Swift, and Javascript Engineer</h2>
+    </div>
+  <div>
+</header>
 
-  <h1 class="page-heading">Posts</h1>
+<div class='container container-about'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <h3>About</h3>
+      <p>
+      Hi, I'm Cameron! 
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+      I'm currently a senior software engineer at [Temenos](http://www.temenos.com/en-us/) working on banking channel products. 
+      </p>
+    </div>
+  </div>
 </div>

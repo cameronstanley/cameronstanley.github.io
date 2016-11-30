@@ -1,0 +1,60 @@
+body {
+  padding-top: 80px;
+}
+
+a.navbar-logo {
+  font-family: 'Lobster', cursive;
+}
+
+.navbar.navbar-inverse {
+  padding: 0 20px;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #FFF;
+  font-size: 3rem;
+}
+
+.navbar-inverse a.navbar-brand:hover {
+  color: $secondary-color;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  font-size: 2rem;
+  font-family: 'Arimo', sans-serif;
+}
+
+.container-header {
+  background-color: $primary-color;
+  display: block;
+  padding: 20px 0;
+  position: relative;
+  text-align: center;
+}
+
+.container-header-avatar {
+  height: 320px;
+  width: 320px;
+}
+
+.container-header-title {
+  color: #FFF;
+  font-family: 'Lobster', cursive;
+  font-size: 4.5rem;
+}
+
+.container-header-tagline {
+  color: #CAE7FF;
+  font-family: 'Arimo', sans-serif;
+  font-size: 2.5rem;
+  margin-top: 10px;
+}
+
+.container-footer {
+  background-color: $quaternary-color;
+  display: block;
+  padding: 20px 0;
+  position: relative;
+}
+
+

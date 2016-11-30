@@ -9,3 +9,7 @@ github_username: cameronstanley
 
 # Build settings
 markdown: kramdown
+
+gems:
+  - jekyll-assets
+  - jekyll-bootstrap-sass
