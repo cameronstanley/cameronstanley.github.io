@@ -4,22 +4,32 @@ title: Blog
 permalink: /blog/
 ---
 
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class='page-header'>
+        <div class='pull-right'>
+          <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+            <span class='fa fa-rss'></span>
+            Subscribe via RSS
+          </a>
+        </div>
+        <h3>Blog</h3>
+      </div>
+      {% for post in site.posts %}
+        <div class='media'>
+          <div class='media-body'>
+            <div class='media-heading'>
+              <h4><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
+            </div>
+            <p>{{ post.excerpt }}</p>
+            <span class="post-meta text-muted">
+              <span class='fa fa-calendar'></span>
+              {{ post.date | date: "%b %-d, %Y" }}
+            </span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
