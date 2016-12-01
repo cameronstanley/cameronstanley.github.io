@@ -1,12 +1,40 @@
 <footer class="container-fluid container-footer">
   <div class='row'>
-    <div class='col-md-10 col-md-offset-1'>
-      <h2>{{site.title}}</h2>
-      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-      <a href="https://github.com/{{ site.github_username }}">
-        {% icon fa-github %} Github
-      </a>
-      <a href="https://twitter.com/{{ site.twitter_username }}"></a>
+    <div class='col-sm-6'>
+      <p>
+        <a href='{{ site.baseurl }}' class='logo'>{{ site.title }}</a>
+        <br />
+        <span class='copyright'>{% icon fa-copyright %} {{ site.time | date: '%Y' }} Cameron Stanley. All rights reserved.</span>
+      </p>
+    </div>
+    <div class='col-sm-6'>
+      <ul class='list-inline'>
+        <li>
+          <a href="mailto:{{ site.email }}" class='btn btn-md btn-primary'>
+            {% icon fa-envelope %}
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/{{ site.github_username }}" target='_blank' class='btn btn-md btn-primary'>
+            {% icon fa-github %}
+          </a>
+        </li>
+        <li>
+          <a href="https://news.ycombinator.com/user?id={{ site.hacker_news_username }}" target='_blank' class='btn btn-md btn-primary'>
+            {% icon fa-hacker-news %}
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/{{ site.twitter_username }}" target='_blank' class='btn btn-md btn-primary'>
+            {% icon fa-twitter %}
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target='_blank' class='btn btn-md btn-primary'>
+            {% icon fa-linkedin %}
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </footer>

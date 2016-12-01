@@ -2,10 +2,12 @@
 title: Cameron Stanley 
 email: me@cameronstanley.com 
 description: Creating things and writing about them. 
-baseurl: "" 
+baseurl: ""
 url: "http://cameronstanley.com"
+github_username: "cameronstanley"
+hacker_news_username: "cameronstanley"
 twitter_username: "@CameronLStanley"
-github_username: cameronstanley 
+linkedin_username: "cameron-stanley-67930530"
 
 # Build settings
 markdown: kramdown
@@ -13,3 +15,6 @@ markdown: kramdown
 gems:
   - jekyll-assets
   - jekyll-bootstrap-sass
+
+bootstrap:
+  assets: true
