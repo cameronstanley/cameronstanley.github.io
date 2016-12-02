@@ -1,6 +1,19 @@
+/* Variables */
 @import "variables";
 @import "overrides";
+
+/* Vendor Dependencies */
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+/* Global */
 @import "styles";
+
+/* Components  */
+@import "icons";
+
+/* Sections */
+@import "navbar";
+@import "landing";
+@import "footer";

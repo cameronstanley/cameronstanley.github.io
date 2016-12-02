@@ -4,9 +4,9 @@ title: Blog
 permalink: /blog/
 ---
 
-<div class='container'>
+<div class='container-fluid container-content'>
   <div class='row'>
-    <div class='col-md-12'>
+    <div class='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1'>
       <div class='page-header'>
         <div class='pull-right'>
           <a href="{{ "/feed.xml" | prepend: site.baseurl }}">

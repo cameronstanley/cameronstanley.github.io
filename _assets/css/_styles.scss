@@ -4,62 +4,6 @@ body {
   background-color: $quaternary-color;
 }
 
-a.navbar-logo {
-  font-family: 'Lobster', cursive;
-}
-
-.navbar.navbar-inverse {
-  padding: 0 20px;
-}
-
-.navbar-inverse .navbar-brand {
-  color: #FFF;
-  font-size: 3rem;
-}
-
-.navbar-inverse a.navbar-brand:hover {
-  color: $secondary-color;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-  font-size: 2rem;
-  font-family: 'Arimo', sans-serif;
-
-  .fa {
-    color: #FFF;
-  }
-}
-
-.container-page {
-  background-color: #FFF;
-}
-
-.container-header {
-  background-color: $primary-color;
-  display: block;
-  padding: 20px 0;
-  position: relative;
-  text-align: center;
-}
-
-.container-header-avatar {
-  height: 320px;
-  width: 320px;
-}
-
-.container-header-title {
-  color: #FFF;
-  font-family: 'Lobster', cursive;
-  font-size: 4.5rem;
-}
-
-.container-header-tagline {
-  color: #CAE7FF;
-  font-family: 'Arimo', sans-serif;
-  font-size: 2.5rem;
-  margin-top: 10px;
-}
-
 .container-content {
   font-family: 'Arimo', sans-serif;
   padding: 80px 35px;
@@ -68,7 +12,6 @@ a.navbar-logo {
   h3 {
     color: $primary-color;
     font-size: 3rem;
-    text-align: center;
   }
 
   p {
@@ -78,52 +21,7 @@ a.navbar-logo {
   }
 }
 
-.container-footer {
-  background-color: $quaternary-color;
-  display: block;
-  padding: 20px 35px;
-  position: relative;
 
-  a.logo {
-    color: #FFF;
-    font-size: 3rem;
-    font-family: 'Lobster', cursive;
-
-    &:hover {
-      color: $tertiary-color;
-    }
-  }
-
-  .copyright {
-    color: $secondary-color;
-  }
-
-  .list-inline {
-    float: right;
-
-    .fa {
-      font-size: 2.5rem;
-      color: $secondary-color;
-      padding-right: 5px;
-      text-align: center;
-      padding: 0;
-    }
-  }
-
-  @media (max-width: $screen-sm-min) {
-    .list-inline {
-      float: left;
-    }
-  }
-}
-
-.fa-terminal {
-  color: $primary-color;
-}
-
-.fa-heart {
-  color: $heart-color;
-  
 .page-header h3 {
   font-size: 2.5rem;
   color: $quaternary-color;
