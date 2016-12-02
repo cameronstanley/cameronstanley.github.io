@@ -10,10 +10,14 @@
 /* Global */
 @import "styles";
 
-/* Components  */
-@import "icons";
-
 /* Sections */
 @import "navbar";
 @import "landing";
+@import "about";
+@import "content";
 @import "footer";
+
+/* Components  */
+@import "page-header";
+@import "icons";
+@import "media";

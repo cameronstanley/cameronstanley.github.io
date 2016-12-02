@@ -1,0 +1,20 @@
+.media-heading > h3 > a {
+  color: $quinary-color;
+  font-size: 3rem;
+  font-weight: 700;
+
+  &:hover {
+    color: $tertiary-color;
+  }
+}
+
+.media-body {
+  p.media-meta {
+    font-size: 1.5rem;
+    color: #999;
+  }
+
+  p.media-text {
+    font-size: 2rem;
+  }
+}

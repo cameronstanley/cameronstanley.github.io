@@ -9,24 +9,31 @@ permalink: /blog/
     <div class='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1'>
       <div class='page-header'>
         <div class='pull-right'>
-          <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+          <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class='btn btn-md btn-primary'>
             <span class='fa fa-rss'></span>
-            Subscribe via RSS
+            RSS Feed
           </a>
         </div>
-        <h3>Blog</h3>
+        <h2>
+          {% icon fa-book %}
+          Blog
+        </h2>
       </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1'>
       {% for post in site.posts %}
         <div class='media'>
           <div class='media-body'>
             <div class='media-heading'>
-              <h4><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
+              <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
             </div>
-            <p>{{ post.excerpt }}</p>
-            <span class="post-meta text-muted">
-              <span class='fa fa-calendar'></span>
+            <p class='media-meta'>
+              {% icon fa-calendar %}
               {{ post.date | date: "%b %-d, %Y" }}
-            </span>
+            </p>
+            <p class='media-text'>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
           </div>
         </div>
       {% endfor %}
