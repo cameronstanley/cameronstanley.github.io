@@ -6,7 +6,7 @@ permalink: /blog/
 
 <div class='container-fluid container-content'>
   <div class='row'>
-    <div class='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1'>
+    <div class='col-md-8 col-md-offset-2'>
       <div class='page-header'>
         <div class='pull-right'>
           <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class='btn btn-md btn-primary'>
@@ -22,7 +22,7 @@ permalink: /blog/
     </div>
   </div>
   <div class='row'>
-    <div class='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1'>
+    <div class='col-md-8 col-md-offset-2'>
       {% for post in site.posts %}
         <div class='media'>
           <div class='media-body'>

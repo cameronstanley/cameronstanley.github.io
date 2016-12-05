@@ -11,13 +11,15 @@
 @import "styles";
 
 /* Sections */
-@import "navbar";
-@import "landing";
 @import "about";
 @import "content";
 @import "footer";
+@import "landing";
+@import "navbar";
 
 /* Components  */
-@import "page-header";
+@import "form";
 @import "icons";
 @import "media";
+@import "page-header";
+@import "post";

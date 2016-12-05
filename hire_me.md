@@ -4,17 +4,42 @@ title: Hire Me
 permalink: /hire_me/
 ---
 
-<div class='container-fluid'>
-  <div class='col-md-6 col-offset-md-3'>
-    <form action="https://formspree.io/me@cameronstanley.com"
-          method="POST">
-      <p>
-        <strong>Name:</strong> <input type="text" name="name">
-      </p>
-      <p>
-        <strong>Email:</strong> <input type="email" name="_replyto">
-      </p>
-        <input type="submit" value="Send">
-    </form>
+<div class='container-fluid container-content'>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+      <div class='page-header'>
+        <h2>
+          {% icon fa-handshake-o %}
+          Hire Me
+        </h2>
+      </div>
+    </div>
+    <div class='col-md-8 col-md-offset-2'>
+      <form action='https://formspree.io/me@cameronstanley.com' method='POST' class='form-horizontal'>
+        <div class='form-group'>
+          <label for='name' class='col-sm-2 control-label'>Name</label>
+          <div class='col-sm-8'>
+            <input type='text' id='name' name='name' class='form-control' placeholder='Enter your name'>
+          </div>
+        </div>
+        <div class='form-group'>
+          <label for='email' class='col-sm-2 control-label'>Email</label>
+          <div class='col-sm-8'>
+            <input type="email" id='email' name="email" class='form-control' placeholder='Enter your email'>
+          </div>
+        </div>
+        <div class='form-group'>
+          <label for='email' class='col-sm-2 control-label'>Message</label>
+          <div class='col-sm-8'>
+            <textarea id='message' name='message' class='form-control' placeholder='Enter your message' rows='3'></textarea>
+          </div>
+        </div>
+        <div class='form-group'>
+          <div class='col-sm-offset-2 col-sm-8'>
+            <input type="submit" class='btn btn-md btn-primary' value="Send">
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
