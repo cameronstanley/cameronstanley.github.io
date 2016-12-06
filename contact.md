@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Hire Me
-permalink: /hire_me/
+title: Contact
+permalink: /contact/
 ---
 
 <div class='container-fluid container-content'>
@@ -10,7 +10,7 @@ permalink: /hire_me/
       <div class='page-header'>
         <h2>
           {% icon fa-handshake-o %}
-          Hire Me
+          Contact
         </h2>
       </div>
     </div>
