@@ -11,6 +11,7 @@ linkedin_username: "cameron-stanley-67930530"
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 
 gems:
   - jekyll-assets

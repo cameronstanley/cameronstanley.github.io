@@ -8,7 +8,7 @@ I recently started down the path of learning the Go programming language and wan
 # Why Go?
 Go is typically labeled as a [systems programming](https://en.wikipedia.org/wiki/System_programming) language, making it a great tool for building CLIs and backend services that support other applications. It has concurrency baked in with [goroutines](https://tour.golang.org/concurrency/1) and is also very fast. The compiler and static typing are welcome features coming from a Java background, making it a scalable language for larger projects. I see Go as another great addition to the programmer's toolbox, and I would advise anyone interested in growing their skill set to take a look at this great language.
 
-![Go gopher](/assets/go-gopher.png "Go gopher"){: .center-image}
+![Go gopher](/assets/go-gopher.png "Go gopher"){: .center-block}
 
 # Working on a Project
 I always find the best way to progress in a new language is to pick a non-trivial project and see it through to completion. I've been making [go-reddit](https://github.com/cameronstanley/go-reddit), a wrapper for the Reddit API for a few weeks now. I thought it might be cool to make a Reddit CLI for light console browsing, but the API wrappers currently available are a little lacking in functionality. Development has been pretty steady in my off-time, there are just a ton of endpoints to implement and the response objects can be a little tricky to parse. The main challenges have been:
