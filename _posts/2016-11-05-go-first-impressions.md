@@ -13,7 +13,8 @@ Go is typically labeled as a [systems programming](https://en.wikipedia.org/wiki
 # Working on a Project
 I always find the best way to progress in a new language is to pick a non-trivial project and see it through to completion. I've been making [go-reddit](https://github.com/cameronstanley/go-reddit), a wrapper for the Reddit API for a few weeks now. I thought it might be cool to make a Reddit CLI for light console browsing, but the API wrappers currently available are a little lacking in functionality. Development has been pretty steady in my off-time, there are just a ton of endpoints to implement and the response objects can be a little tricky to parse. The main challenges have been:
 
-* **Decoding of JSON** - Parsing the JSON responses from the API is handled using the [encoding/json package](https://godoc.org/encoding/json). The json package will decode the body of a response to a struct, provided that struct's named fields matches the keys in the JSON object (if not you can explicity declare the mapping using the backticks format as shown below). Here's an example:
+## Decoding of JSON
+Parsing the JSON responses from the API is handled using the [encoding/json package](https://godoc.org/encoding/json). The json package will decode the body of a response to a struct, provided that struct's named fields matches the keys in the JSON object (if not you can explicity declare the mapping using the backticks format as shown below). Here's an example:
 
 ```go
 var trophyListing struct {
@@ -31,7 +32,8 @@ if err != nil {
 
 Where it starts to get tricky is when you have multiple types that can be returned in a listing, which requires more dynamic parsing. I'm still working through the cleanest way to implement this functionality.
 
-* **Implementing OAuth2** - The [oauth2 package](golang.org/x/oauth2) does a lot of the heavy lifting for implementing OAuth2, but I have still been struggling with a HTTP 429 Too Many Requests error when exchanging the authentication code for an access token according to the protocol:
+## Implementing OAuth2
+The [oauth2 package](golang.org/x/oauth2) does a lot of the heavy lifting for implementing OAuth2, but I have still been struggling with a HTTP 429 Too Many Requests error when exchanging the authentication code for an access token according to the protocol:
 
 ```
 oauth2: cannot fetch token: 429 Too Many Requests
