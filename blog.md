@@ -32,6 +32,13 @@ permalink: /blog/
             <p class='media-meta'>
               <span class='fa fa-calendar'></span>
               {{ post.date | date: "%b %-d, %Y" }}
+              {% if post.tags.size > 0 %}
+                <span class='pull-right'>
+                {% for tag in post.tags %}
+                  <span class='label label-primary'>{{ tag }}</span>
+                {% endfor %}
+                </span>
+              {% endif %}
             </p>
             <p class='media-text'>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
           </div>

@@ -2,7 +2,7 @@
 layout: post
 title: "Using Glyphicons PRO with Rails"
 date: 2015-08-14 10:30:00
-categories: rails
+tags: rails glyphicons
 ---
 
 [Bootstrap 3](http://getbootstrap.com) comes packaged with a fancy set of over 250 free icons called [Glyphicons](http://glyphicons.com/) that can easily be used to make your application more user friendly. After using them for some time, but needing a little more variety in my icon choice, I decided to upgrade to Glyphicons PRO which provides close to 1000 icons in various formats and sizes. It also includes a web font which plays nicely with Rails after a little configuration. Here's how to get Glyphicons PRO working in your Rails project:

@@ -2,7 +2,7 @@
 layout: post
 title: "RubyGems Error"
 date: 2016-02-09 19:30:00
-categories: rails
+tags: ruby rubygems
 ---
 
 While trying to get some environment variables setup with Travis CI using the travis gem from the command line I ran in to this error:

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Go - First Impressions
+tags: go
 ---
 
 I recently started down the path of learning the Go programming language and wanted to share my experience for anyone interested in becoming a Gopher.
