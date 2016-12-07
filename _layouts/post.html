@@ -1,15 +1,27 @@
 ---
 layout: default
 ---
-<div class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
-
-  <article class="post-content">
-    {{ content }}
-  </article>
-
+<div class='container-fluid container-content'>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+      <div class='page-header'>
+        <ol class='pull-right breadcrumb'>
+          <li><a href='/blog'>{% icon fa-book %} Blog</a></li>
+          <li class='active'>{{ page.title }}</li>
+        </ol>
+        <h2 class='post-title'>{{ page.title }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+      <div class='post-body'>
+        <p class='post-meta'>
+          {% icon fa-calendar %}
+          {{ page.date | date: "%b %-d, %Y" }}
+        </p>
+        {{ content }}
+      </div>
+    </div>
+  </div>
 </div>

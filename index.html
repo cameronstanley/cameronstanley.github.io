@@ -2,22 +2,27 @@
 layout: default
 ---
 
-<div class="home">
+<header class='container-fluid container-landing'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <img src='{% asset_path avatar.jpg %}' class='container-landing-avatar img-circle'>
+      <h1 class='container-landing-title'>Cameron Stanley</h1>
+      <h2 class='container-landing-tagline'>Rails, Swift, and Javascript Engineer</h2>
+    </div>
+  <div>
+</header>
 
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+<div class='container-fluid container-about'>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1'>
+      <p>
+      <span class='fa fa-terminal colorize'></span>
+      <strong>Hi, I'm Cameron!</strong> I'm currently a senior software engineer at <a href='http://www.temenos.com/en-us/' target='_blank'>Temenos</a> working on compliance and channel banking apps. I'm passionate about crafting quality code and delivering polished products. I'm a Rails junkie first and foremost, but I also <span class='fa fa-heart colorize'></span> hacking away on Java Spring, iOS, Angular, React, and Go projects.
+      </p>
+      <hr />
+      <p>
+      I write about the things I'm creating, which can be found on my <a href='/blog'>blog</a>. I also have many of my open-source works from over the years featured on my <a href='/portfolio'>portfolio</a>. If you have a project you want to succeed, feel free to <a href='/hire_me'>get in touch with me!</a>
+      </p>
+    </div>
+  </div>
 </div>

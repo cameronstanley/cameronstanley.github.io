@@ -1,0 +1,16 @@
+.container-about {
+  font-family: 'Arimo', sans-serif;
+  padding: 80px 35px;
+  background-color: #fff;
+
+  h3 {
+    color: $primary-color;
+    font-size: 3rem;
+  }
+
+  p {
+    color: #777;
+    font-size: 2.5rem;
+    text-align: justify;
+  }
+}

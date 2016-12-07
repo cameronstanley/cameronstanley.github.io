@@ -1,0 +1,42 @@
+h2.post-title {
+  color: $quaternary-color;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.post-body {
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $quinary-color;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: $quinary-color;
+  }
+
+  p {
+    font-size: 2rem;
+    padding: 10px 0;
+  }
+
+  p.post-meta {
+    font-size: 1.5rem;
+    color: #999;
+    padding: 0;
+  }
+
+  li {
+    font-size: 2rem;
+    color: #666;
+  }
+
+  img {
+    padding: 10px 0;
+  }
+
+  em {
+    font-size: 1.5rem;
+  }
+}
