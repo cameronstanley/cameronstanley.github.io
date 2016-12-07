@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Using Glyphicons PRO with Rails | Cameron Stanley</title>
+    <meta name="description" content="Creating things and writing about them.">
+
+    <link type="text/css" rel="stylesheet" href="/assets/main.css">
+    <link rel="canonical" href="http://cameronstanley.com/2015/08/14/using-glyphicons-pro-with-rails.html">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Arimo:400,700" rel="stylesheet">
+
+    <script type="text/javascript" src="/assets/main.js"></script>
+
+    
+</head>
+
+  <body>
+    <nav class='navbar navbar-fixed-top navbar-inverse'>
+  <div class='container-fluid'>
+    <div class='navbar-header'>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand navbar-logo " href="/">Cameron Stanley</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class='nav navbar-nav navbar-right'>
+        <li><a href='/blog'><span class='fa fa-book'></span> Blog</a></li>
+        <li><a href='/portfolio'><span class='fa fa-th'></span> Portfolio</a></li>
+        <li><a href='/contact'><span class='fa fa-handshake-o'></span> Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class='container-fluid container-content'>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+      <div class='page-header'>
+        <ol class='pull-right breadcrumb'>
+          <li><a href='/blog'><span class='fa fa-book'></span> Blog</a></li>
+          <li class='active'>Using Glyphicons PRO with Rails</li>
+        </ol>
+        <h2 class='post-title'>Using Glyphicons PRO with Rails</h2>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+      <div class='post-body'>
+        <p class='post-meta'>
+          <span class='fa fa-calendar'></span>
+          Aug 14, 2015
+        </p>
+        <p><a href="http://getbootstrap.com">Bootstrap 3</a> comes packaged with a fancy set of over 250 free icons called <a href="http://glyphicons.com/">Glyphicons</a> that can easily be used to make your application more user friendly. After using them for some time, but needing a little more variety in my icon choice, I decided to upgrade to Glyphicons PRO which provides close to 1000 icons in various formats and sizes. It also includes a web font which plays nicely with Rails after a little configuration. Here’s how to get Glyphicons PRO working in your Rails project:</p>
+
+<p><strong>Note: This tutorial assumes a Rails 4 project using Sass.</strong></p>
+
+<p>First, make the web fonts available in the asset pipeline by copying them to app/assets/fonts (create this directory if it doesn’t already exist).</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mkdir &lt;rails_root&gt;/app/assets/fonts   
+cp glyphicons_pro/glyphicons/web/html_css/fonts/<span class="k">*</span> &lt;rails_root&gt;/app/assets/fonts/   
+</code></pre>
+</div>
+
+<p>Next, copy the provided glyphicons.css file to app/assets/stylesheets and name it with a .css.scss extension.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cp glyphicons_pro/glyphicons_all/glyphicons/web/html_css/css/glyphicons.css &lt;rails_root&gt;/app/assets/stylesheets/glyphicons.css.scss
+</code></pre>
+</div>
+
+<p>Finally, the URL paths for the fonts inside of glyphicons.css.scss need to be modified to use the asset helper <code class="highlighter-rouge">font-url</code>. Remove the <code class="highlighter-rouge">../fonts/</code> portion of the path and wrap the filename in <code class="highlighter-rouge">font-path()</code> for each font file.</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="k">@font-face</span> <span class="p">{</span>
+  <span class="nl">font-family</span><span class="p">:</span><span class="s2">'Glyphicons Regular'</span><span class="p">;</span>
+  <span class="nl">src</span><span class="p">:</span><span class="sx">url(font-path('glyphicons-regular.eot')</span><span class="p">);</span>
+  <span class="nl">src</span><span class="p">:</span><span class="sx">url(font-path('glyphicons-regular.eot?#iefix')</span><span class="p">)</span> <span class="n">format</span><span class="p">(</span><span class="s2">'embedded-opentype'</span><span class="p">),</span>
+  <span class="sx">url(font-path('glyphicons-regular.woff2')</span><span class="p">)</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff2'</span><span class="p">),</span>
+  <span class="sx">url(font-path('glyphicons-regular.woff')</span><span class="p">)</span> <span class="n">format</span><span class="p">(</span><span class="s2">'woff'</span><span class="p">),</span>
+  <span class="sx">url(font-path('glyphicons-regular.ttf')</span><span class="p">)</span> <span class="n">format</span><span class="p">(</span><span class="s2">'truetype'</span><span class="p">),</span>
+  <span class="sx">url(font-path('glyphicons-regular.svg#glyphiconsregular')</span><span class="p">)</span> <span class="n">format</span><span class="p">(</span><span class="s2">'svg'</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="o">...</span>
+</code></pre>
+</div>
+
+<p>Restart your rails server and the icons will now be available in your app.</p>
+
+<p>Note the difference in naming between the CSS class for Bootstrap Glyphicons (<code class="highlighter-rouge">glyphicon</code>) and Glyphicons PRO (<code class="highlighter-rouge">glyphicons</code>). If your project was previously using Bootstrap 3 Glyphicons, each usage will need to be modified to take advantage of Glyphicons PRO.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicons glyphicons-thumbs-up"</span><span class="nt">&gt;</span>
+</code></pre>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    <footer class="container-fluid container-footer">
+  <div class='row'>
+    <div class='col-sm-6'>
+      <p>
+        <a href='' class='logo'>Cameron Stanley</a>
+        <br />
+        <span class='copyright'><span class='fa fa-copyright'></span> 2016 Cameron Stanley. All rights reserved.</span>
+      </p>
+    </div>
+    <div class='col-sm-6'>
+      <ul class='list-inline'>
+        <li>
+          <a href="mailto:me@cameronstanley.com" class='btn btn-md btn-primary'>
+            <span class='fa fa-envelope'></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/cameronstanley" target='_blank' class='btn btn-md btn-primary'>
+            <span class='fa fa-github'></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://news.ycombinator.com/user?id=cameronstanley" target='_blank' class='btn btn-md btn-primary'>
+            <span class='fa fa-hacker-news'></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/@CameronLStanley" target='_blank' class='btn btn-md btn-primary'>
+            <span class='fa fa-twitter'></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/cameron-stanley-67930530" target='_blank' class='btn btn-md btn-primary'>
+            <span class='fa fa-linkedin'></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

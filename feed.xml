@@ -1,30 +1,194 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml" />
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title>Cameron Stanley</title>
+    <description>Creating things and writing about them.</description>
+    <link>http://cameronstanley.com/</link>
+    <atom:link href="http://cameronstanley.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 07 Dec 2016 11:20:27 -0600</pubDate>
+    <lastBuildDate>Wed, 07 Dec 2016 11:20:27 -0600</lastBuildDate>
+    <generator>Jekyll v3.2.1</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>Go - First Impressions</title>
+        <description>&lt;p&gt;I recently started down the path of learning the Go programming language and wanted to share my experience for anyone interested in becoming a Gopher.&lt;/p&gt;
+
+&lt;h1 id=&quot;why-go&quot;&gt;Why Go?&lt;/h1&gt;
+&lt;p&gt;Go is typically labeled as a &lt;a href=&quot;https://en.wikipedia.org/wiki/System_programming&quot;&gt;systems programming&lt;/a&gt; language, making it a great tool for building CLIs and backend services that support other applications. It has concurrency baked in with &lt;a href=&quot;https://tour.golang.org/concurrency/1&quot;&gt;goroutines&lt;/a&gt; and is also very fast. The compiler and static typing are welcome features coming from a Java background, making it a scalable language for larger projects. I see Go as another great addition to the programmer’s toolbox, and I would advise anyone interested in growing their skill set to take a look at this great language.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/go-gopher.png&quot; alt=&quot;Go gopher&quot; title=&quot;Go gopher&quot; class=&quot;center-block&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;working-on-a-project&quot;&gt;Working on a Project&lt;/h1&gt;
+&lt;p&gt;I always find the best way to progress in a new language is to pick a non-trivial project and see it through to completion. I’ve been making &lt;a href=&quot;https://github.com/cameronstanley/go-reddit&quot;&gt;go-reddit&lt;/a&gt;, a wrapper for the Reddit API for a few weeks now. I thought it might be cool to make a Reddit CLI for light console browsing, but the API wrappers currently available are a little lacking in functionality. Development has been pretty steady in my off-time, there are just a ton of endpoints to implement and the response objects can be a little tricky to parse. The main challenges have been:&lt;/p&gt;
+
+&lt;h2 id=&quot;decoding-of-json&quot;&gt;Decoding of JSON&lt;/h2&gt;
+&lt;p&gt;Parsing the JSON responses from the API is handled using the &lt;a href=&quot;https://godoc.org/encoding/json&quot;&gt;encoding/json package&lt;/a&gt;. The json package will decode the body of a response to a struct, provided that struct’s named fields matches the keys in the JSON object (if not you can explicity declare the mapping using the backticks format as shown below). Here’s an example:&lt;/p&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trophyListing&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Kind&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;`json:&quot;kind&quot;`&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Data&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Trophies&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Award&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;`json:&quot;trophies&quot;`&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;`json:&quot;data&quot;`&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NewDecoder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trophyListing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Where it starts to get tricky is when you have multiple types that can be returned in a listing, which requires more dynamic parsing. I’m still working through the cleanest way to implement this functionality.&lt;/p&gt;
+
+&lt;h2 id=&quot;implementing-oauth2&quot;&gt;Implementing OAuth2&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&quot;golang.org/x/oauth2&quot;&gt;oauth2 package&lt;/a&gt; does a lot of the heavy lifting for implementing OAuth2, but I have still been struggling with a HTTP 429 Too Many Requests error when exchanging the authentication code for an access token according to the protocol:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;oauth2: cannot fetch token: 429 Too Many Requests
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Reddit requires a unique User-Agent header to be set for all authenticated requests, and will heavily rate limit any calls not providing it. Doing some Googling suggests that is the cause of my HTTP 429 error code, but the oauth2 package does not have the functionality to set the User-Agent during the token exchange. It looks like I’m going to need to implement the token exchange manually, which shouldn’t be too difficult.&lt;/p&gt;
+
+&lt;h1 id=&quot;initial-thoughts&quot;&gt;Initial Thoughts&lt;/h1&gt;
+&lt;p&gt;In my short amount of time working with Go, I have been impressed with the simple yet powerful syntax. Having a compiler and static type checking took a little bit of getting used to but really increases productivity by catching complation errors. I’m also particularly fond of the &lt;a href=&quot;https://golang.org/cmd/gofmt/&quot;&gt;gofmt&lt;/a&gt; tool that will autocorrect formatting issues leading to more readable and consistent code. The &lt;a href=&quot;https://golang.org/pkg/testing/&quot;&gt;testing package&lt;/a&gt; provides a nice framework to write and run tests and I’m going to try out one of the BDD packages when I have some time. Go feels similar to in spirit to C, but I feel like it is easier to produce fast, working, well tested and documented code using it.&lt;/p&gt;
+
+&lt;p&gt;I did run in to some early issues with not having my $GOPATH set correctly, so be sure to follow the &lt;a href=&quot;https://golang.org/doc/code.html#GOPATH&quot;&gt;install instructions&lt;/a&gt;. Also, when working on go-reddit it took me a little while to figure out that if you are going to use your package locally in a &lt;code class=&quot;highlighter-rouge&quot;&gt;package main&lt;/code&gt; program it needs to be located within your $GOPATH to be able to import it. My project was located in directory outside my $GOPATH and it was a bit of a headache trying to debug it.&lt;/p&gt;
+
+&lt;p&gt;Overall, I am loving Go and would highly recommend it to anyone looking to add a great language to their skill set.&lt;/p&gt;
+
+&lt;h1 id=&quot;learning-resources&quot;&gt;Learning Resources&lt;/h1&gt;
+&lt;p&gt;Here’s a list of resources I utilized while learning Go:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tour.golang.org/list&quot;&gt;A Tour of Go&lt;/a&gt; is the official tutorial and a great way to get your feet wet with the language. I’d recommend starting here since it has an interactive console you can follow along without having to setup your development environment.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://codeschool.com&quot;&gt;Code School&lt;/a&gt; recently launched a new course titled “On Track With Golang” that is a pretty great introduction to the language. Usually their courses are enough to only get the basic syntax of a language down, but I found myself feeling like I had a significant handle on Go once I finished it. If you have an account, definitely spend the time to go through this one.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/avelino/awesome-go&quot;&gt;awesome-go&lt;/a&gt; is a curated list of Go packages that you can use in your projects. It’s always nice to have one of these when exploring a new community to see what is available and to get some quality real-world examples.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://godoc.org/&quot;&gt;GoDoc&lt;/a&gt; is the official documentation host for Go packages. Any open-source project on GitHub, GitLab, or Bitbucket has its documentation published here and is in a clean viewable format. It is very useful when importing and using an open-source package in your project.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/fatih/vim-go&quot;&gt;vim-go&lt;/a&gt; is a must-have if you are a vim user (like me). Syntax highlighting, gofmt on save, and being able to jump to a declaration are all invaluable.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/golang/lint&quot;&gt;golint&lt;/a&gt; is a linter for Go and a great way to ensure you are writing stylistically correct and GoDoc ready code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Go Gopher created by Renee French and licensed under &lt;a href=&quot;https://creativecommons.org/licenses/by/3.0/us/&quot;&gt;Creative Commons Attributions 3.0&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 05 Nov 2016 00:00:00 -0500</pubDate>
+        <link>http://cameronstanley.com/2016/11/05/go-first-impressions.html</link>
+        <guid isPermaLink="true">http://cameronstanley.com/2016/11/05/go-first-impressions.html</guid>
+        
+        <category>go</category>
+        
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>RubyGems Error</title>
+        <description>&lt;p&gt;While trying to get some environment variables setup with Travis CI using the travis gem from the command line I ran in to this error:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;travis encrypt &lt;span class=&quot;nv&quot;&gt;SPOTIFY_CLIENT_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;obfuscated&amp;gt;
+/Users/Cameron/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby/2.3.0/rubygems/specification.rb:2159:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;method_missing&lt;span class=&quot;s1&quot;&gt;': undefined method `this'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#&amp;lt;Gem::Specification:0x3ff7a8d716f0 travis-1.8.2&amp;gt; (NoMethodError)&lt;/span&gt;
+        from /Users/Cameron/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby/2.3.0/rubygems/specification.rb:1057:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;find_active_stub_by_path&lt;span class=&quot;s1&quot;&gt;'
+        from /Users/Cameron/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby/2.3.0/rubygems/core_ext/kernel_require.rb:64:in `require'&lt;/span&gt;
+        from /Users/Cameron/.rvm/gems/ruby-2.3.0/gems/travis-1.8.2/lib/travis/cli.rb:2:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&amp;lt;top &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;required&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&amp;gt;&lt;span class=&quot;s1&quot;&gt;'
+        from /Users/Cameron/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby/2.3.0/rubygems/core_ext/kernel_require.rb:127:in `require'&lt;/span&gt;
+        from /Users/Cameron/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby/2.3.0/rubygems/core_ext/kernel_require.rb:127:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;rescue &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;require&lt;span class=&quot;s1&quot;&gt;'
+        from /Users/Cameron/.rvm/rubies/ruby-2.3.0/lib/ruby/site_ruby/2.3.0/rubygems/core_ext/kernel_require.rb:40:in `require'&lt;/span&gt;
+        from /Users/Cameron/.rvm/gems/ruby-2.3.0/gems/travis-1.8.2/bin/travis:7:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&amp;lt;top &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;required&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&amp;gt;&lt;span class=&quot;s1&quot;&gt;'
+        from /Users/Cameron/.rvm/gems/ruby-2.3.0/bin/travis:22:in `load'&lt;/span&gt;
+        from /Users/Cameron/.rvm/gems/ruby-2.3.0/bin/travis:22:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&amp;lt;main&amp;gt;&lt;span class=&quot;s1&quot;&gt;'
+        from /Users/Cameron/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in `eval'&lt;/span&gt;
+        from /Users/Cameron/.rvm/gems/ruby-2.3.0/bin/ruby_executable_hooks:15:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&amp;lt;main&amp;gt;&lt;span class=&quot;s1&quot;&gt;'
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;After a bit of googling, this got it working:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem pristine --all
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Cheers!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 09 Feb 2016 13:30:00 -0600</pubDate>
+        <link>http://cameronstanley.com/2016/02/09/rubygems-error.html</link>
+        <guid isPermaLink="true">http://cameronstanley.com/2016/02/09/rubygems-error.html</guid>
+        
+        <category>ruby</category>
+        
+        <category>rubygems</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Using Glyphicons PRO with Rails</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://getbootstrap.com&quot;&gt;Bootstrap 3&lt;/a&gt; comes packaged with a fancy set of over 250 free icons called &lt;a href=&quot;http://glyphicons.com/&quot;&gt;Glyphicons&lt;/a&gt; that can easily be used to make your application more user friendly. After using them for some time, but needing a little more variety in my icon choice, I decided to upgrade to Glyphicons PRO which provides close to 1000 icons in various formats and sizes. It also includes a web font which plays nicely with Rails after a little configuration. Here’s how to get Glyphicons PRO working in your Rails project:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note: This tutorial assumes a Rails 4 project using Sass.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;First, make the web fonts available in the asset pipeline by copying them to app/assets/fonts (create this directory if it doesn’t already exist).&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir &amp;lt;rails_root&amp;gt;/app/assets/fonts   
+cp glyphicons_pro/glyphicons/web/html_css/fonts/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &amp;lt;rails_root&amp;gt;/app/assets/fonts/   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Next, copy the provided glyphicons.css file to app/assets/stylesheets and name it with a .css.scss extension.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp glyphicons_pro/glyphicons_all/glyphicons/web/html_css/css/glyphicons.css &amp;lt;rails_root&amp;gt;/app/assets/stylesheets/glyphicons.css.scss
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Finally, the URL paths for the fonts inside of glyphicons.css.scss need to be modified to use the asset helper &lt;code class=&quot;highlighter-rouge&quot;&gt;font-url&lt;/code&gt;. Remove the &lt;code class=&quot;highlighter-rouge&quot;&gt;../fonts/&lt;/code&gt; portion of the path and wrap the filename in &lt;code class=&quot;highlighter-rouge&quot;&gt;font-path()&lt;/code&gt; for each font file.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@font-face&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;'Glyphicons Regular'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;url(font-path('glyphicons-regular.eot')&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;url(font-path('glyphicons-regular.eot?#iefix')&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;'embedded-opentype'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;sx&quot;&gt;url(font-path('glyphicons-regular.woff2')&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;'woff2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;sx&quot;&gt;url(font-path('glyphicons-regular.woff')&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;'woff'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;sx&quot;&gt;url(font-path('glyphicons-regular.ttf')&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;'truetype'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;sx&quot;&gt;url(font-path('glyphicons-regular.svg#glyphiconsregular')&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;'svg'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Restart your rails server and the icons will now be available in your app.&lt;/p&gt;
+
+&lt;p&gt;Note the difference in naming between the CSS class for Bootstrap Glyphicons (&lt;code class=&quot;highlighter-rouge&quot;&gt;glyphicon&lt;/code&gt;) and Glyphicons PRO (&lt;code class=&quot;highlighter-rouge&quot;&gt;glyphicons&lt;/code&gt;). If your project was previously using Bootstrap 3 Glyphicons, each usage will need to be modified to take advantage of Glyphicons PRO.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;glyphicons glyphicons-thumbs-up&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 14 Aug 2015 05:30:00 -0500</pubDate>
+        <link>http://cameronstanley.com/2015/08/14/using-glyphicons-pro-with-rails.html</link>
+        <guid isPermaLink="true">http://cameronstanley.com/2015/08/14/using-glyphicons-pro-with-rails.html</guid>
+        
+        <category>rails</category>
+        
+        <category>glyphicons</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>First</title>
+        <description>&lt;p&gt;I’m starting this blog to keep up with things I learn or find interesting related to programming and software engineering, with the hopes it will help someone else. I’m currently a senior software engineer at &lt;a href=&quot;http://www.temenos.com/en-us/&quot;&gt;Temenos&lt;/a&gt; working on banking channel products. I’ve primarily worked on projects written in Ruby on Rails, Java, and Objective-C, but lately I have been getting into Node.js, Go, and Swift.&lt;/p&gt;
+
+&lt;p&gt;The plan is to churn out at least one entry per week, so be sure to keep an eye out for updates.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 28 May 2015 10:15:39 -0500</pubDate>
+        <link>http://cameronstanley.com/2015/05/28/first.html</link>
+        <guid isPermaLink="true">http://cameronstanley.com/2015/05/28/first.html</guid>
+        
+        <category>general</category>
+        
+        
+      </item>
+    
   </channel>
 </rss>

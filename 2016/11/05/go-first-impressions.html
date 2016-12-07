@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Go - First Impressions | Cameron Stanley</title>
+    <meta name="description" content="Creating things and writing about them.">
+
+    <link type="text/css" rel="stylesheet" href="/assets/main.css">
+    <link rel="canonical" href="http://cameronstanley.com/2016/11/05/go-first-impressions.html">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Arimo:400,700" rel="stylesheet">
+
+    <script type="text/javascript" src="/assets/main.js"></script>
+
+    
+</head>
+
+  <body>
+    <nav class='navbar navbar-fixed-top navbar-inverse'>
+  <div class='container-fluid'>
+    <div class='navbar-header'>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand navbar-logo " href="/">Cameron Stanley</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class='nav navbar-nav navbar-right'>
+        <li><a href='/blog'><span class='fa fa-book'></span> Blog</a></li>
+        <li><a href='/portfolio'><span class='fa fa-th'></span> Portfolio</a></li>
+        <li><a href='/contact'><span class='fa fa-handshake-o'></span> Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class='container-fluid container-content'>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+      <div class='page-header'>
+        <ol class='pull-right breadcrumb'>
+          <li><a href='/blog'><span class='fa fa-book'></span> Blog</a></li>
+          <li class='active'>Go - First Impressions</li>
+        </ol>
+        <h2 class='post-title'>Go - First Impressions</h2>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+      <div class='post-body'>
+        <p class='post-meta'>
+          <span class='fa fa-calendar'></span>
+          Nov 5, 2016
+        </p>
+        <p>I recently started down the path of learning the Go programming language and wanted to share my experience for anyone interested in becoming a Gopher.</p>
+
+<h1 id="why-go">Why Go?</h1>
+<p>Go is typically labeled as a <a href="https://en.wikipedia.org/wiki/System_programming">systems programming</a> language, making it a great tool for building CLIs and backend services that support other applications. It has concurrency baked in with <a href="https://tour.golang.org/concurrency/1">goroutines</a> and is also very fast. The compiler and static typing are welcome features coming from a Java background, making it a scalable language for larger projects. I see Go as another great addition to the programmer’s toolbox, and I would advise anyone interested in growing their skill set to take a look at this great language.</p>
+
+<p><img src="/assets/go-gopher.png" alt="Go gopher" title="Go gopher" class="center-block" /></p>
+
+<h1 id="working-on-a-project">Working on a Project</h1>
+<p>I always find the best way to progress in a new language is to pick a non-trivial project and see it through to completion. I’ve been making <a href="https://github.com/cameronstanley/go-reddit">go-reddit</a>, a wrapper for the Reddit API for a few weeks now. I thought it might be cool to make a Reddit CLI for light console browsing, but the API wrappers currently available are a little lacking in functionality. Development has been pretty steady in my off-time, there are just a ton of endpoints to implement and the response objects can be a little tricky to parse. The main challenges have been:</p>
+
+<h2 id="decoding-of-json">Decoding of JSON</h2>
+<p>Parsing the JSON responses from the API is handled using the <a href="https://godoc.org/encoding/json">encoding/json package</a>. The json package will decode the body of a response to a struct, provided that struct’s named fields matches the keys in the JSON object (if not you can explicity declare the mapping using the backticks format as shown below). Here’s an example:</p>
+
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">var</span><span class="x"> </span><span class="n">trophyListing</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="n">Kind</span><span class="x"> </span><span class="kt">string</span><span class="x"> </span><span class="s">`json:"kind"`</span><span class="x">
+  </span><span class="n">Data</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">Trophies</span><span class="x"> </span><span class="p">[]</span><span class="o">*</span><span class="n">Award</span><span class="x"> </span><span class="s">`json:"trophies"`</span><span class="x">
+  </span><span class="p">}</span><span class="x"> </span><span class="s">`json:"data"`</span><span class="x">
+</span><span class="p">}</span><span class="x">
+
+</span><span class="n">err</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">json</span><span class="o">.</span><span class="n">NewDecoder</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="o">.</span><span class="n">Decode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">trophyListing</span><span class="p">)</span><span class="x">
+</span><span class="k">if</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="k">return</span><span class="x"> </span><span class="no">nil</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+</div>
+
+<p>Where it starts to get tricky is when you have multiple types that can be returned in a listing, which requires more dynamic parsing. I’m still working through the cleanest way to implement this functionality.</p>
+
+<h2 id="implementing-oauth2">Implementing OAuth2</h2>
+<p>The <a href="golang.org/x/oauth2">oauth2 package</a> does a lot of the heavy lifting for implementing OAuth2, but I have still been struggling with a HTTP 429 Too Many Requests error when exchanging the authentication code for an access token according to the protocol:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>oauth2: cannot fetch token: 429 Too Many Requests
+</code></pre>
+</div>
+
+<p>Reddit requires a unique User-Agent header to be set for all authenticated requests, and will heavily rate limit any calls not providing it. Doing some Googling suggests that is the cause of my HTTP 429 error code, but the oauth2 package does not have the functionality to set the User-Agent during the token exchange. It looks like I’m going to need to implement the token exchange manually, which shouldn’t be too difficult.</p>
+
+<h1 id="initial-thoughts">Initial Thoughts</h1>
+<p>In my short amount of time working with Go, I have been impressed with the simple yet powerful syntax. Having a compiler and static type checking took a little bit of getting used to but really increases productivity by catching complation errors. I’m also particularly fond of the <a href="https://golang.org/cmd/gofmt/">gofmt</a> tool that will autocorrect formatting issues leading to more readable and consistent code. The <a href="https://golang.org/pkg/testing/">testing package</a> provides a nice framework to write and run tests and I’m going to try out one of the BDD packages when I have some time. Go feels similar to in spirit to C, but I feel like it is easier to produce fast, working, well tested and documented code using it.</p>
+
+<p>I did run in to some early issues with not having my $GOPATH set correctly, so be sure to follow the <a href="https://golang.org/doc/code.html#GOPATH">install instructions</a>. Also, when working on go-reddit it took me a little while to figure out that if you are going to use your package locally in a <code class="highlighter-rouge">package main</code> program it needs to be located within your $GOPATH to be able to import it. My project was located in directory outside my $GOPATH and it was a bit of a headache trying to debug it.</p>
+
+<p>Overall, I am loving Go and would highly recommend it to anyone looking to add a great language to their skill set.</p>
+
+<h1 id="learning-resources">Learning Resources</h1>
+<p>Here’s a list of resources I utilized while learning Go:</p>
+
+<ul>
+  <li><a href="https://tour.golang.org/list">A Tour of Go</a> is the official tutorial and a great way to get your feet wet with the language. I’d recommend starting here since it has an interactive console you can follow along without having to setup your development environment.</li>
+  <li><a href="http://codeschool.com">Code School</a> recently launched a new course titled “On Track With Golang” that is a pretty great introduction to the language. Usually their courses are enough to only get the basic syntax of a language down, but I found myself feeling like I had a significant handle on Go once I finished it. If you have an account, definitely spend the time to go through this one.</li>
+  <li><a href="https://github.com/avelino/awesome-go">awesome-go</a> is a curated list of Go packages that you can use in your projects. It’s always nice to have one of these when exploring a new community to see what is available and to get some quality real-world examples.</li>
+  <li><a href="https://godoc.org/">GoDoc</a> is the official documentation host for Go packages. Any open-source project on GitHub, GitLab, or Bitbucket has its documentation published here and is in a clean viewable format. It is very useful when importing and using an open-source package in your project.</li>
+</ul>
+
+<h1 id="tools">Tools</h1>
+<ul>
+  <li><a href="https://github.com/fatih/vim-go">vim-go</a> is a must-have if you are a vim user (like me). Syntax highlighting, gofmt on save, and being able to jump to a declaration are all invaluable.</li>
+  <li><a href="https://github.com/golang/lint">golint</a> is a linter for Go and a great way to ensure you are writing stylistically correct and GoDoc ready code.</li>
+</ul>
+
+<p><em>Go Gopher created by Renee French and licensed under <a href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons Attributions 3.0</a>.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    <footer class="container-fluid container-footer">
+  <div class='row'>
+    <div class='col-sm-6'>
+      <p>
+        <a href='' class='logo'>Cameron Stanley</a>
+        <br />
+        <span class='copyright'><span class='fa fa-copyright'></span> 2016 Cameron Stanley. All rights reserved.</span>
+      </p>
+    </div>
+    <div class='col-sm-6'>
+      <ul class='list-inline'>
+        <li>
+          <a href="mailto:me@cameronstanley.com" class='btn btn-md btn-primary'>
+            <span class='fa fa-envelope'></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/cameronstanley" target='_blank' class='btn btn-md btn-primary'>
+            <span class='fa fa-github'></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://news.ycombinator.com/user?id=cameronstanley" target='_blank' class='btn btn-md btn-primary'>
+            <span class='fa fa-hacker-news'></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/@CameronLStanley" target='_blank' class='btn btn-md btn-primary'>
+            <span class='fa fa-twitter'></span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/cameron-stanley-67930530" target='_blank' class='btn btn-md btn-primary'>
+            <span class='fa fa-linkedin'></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
