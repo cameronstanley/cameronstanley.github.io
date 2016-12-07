@@ -15,7 +15,7 @@ permalink: /blog/
           </a>
         </div>
         <h2>
-          {% icon fa-book %}
+          <span class='fa fa-book'></span>
           Blog
         </h2>
       </div>
@@ -30,7 +30,7 @@ permalink: /blog/
               <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
             </div>
             <p class='media-meta'>
-              {% icon fa-calendar %}
+              <span class='fa fa-calendar'></span>
               {{ post.date | date: "%b %-d, %Y" }}
             </p>
             <p class='media-text'>{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>

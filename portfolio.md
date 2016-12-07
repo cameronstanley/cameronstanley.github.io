@@ -9,7 +9,7 @@ permalink: /portfolio/
     <div class='col-md-8 col-md-offset-2'>
       <div class='page-header'>
         <h2>
-          {% icon fa-th %}
+          <span class='fa fa-th'></span>
           Portfolio
         </h2>
       </div>

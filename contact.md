@@ -9,7 +9,7 @@ permalink: /contact/
     <div class='col-md-8 col-md-offset-2'>
       <div class='page-header'>
         <h2>
-          {% icon fa-handshake-o %}
+          <span class='fa fa-handshake-o'></span>
           Contact
         </h2>
       </div>
