@@ -20,32 +20,44 @@ permalink: /portfolio/
       <div class='row'>
         <div class='col-md-4'>
           <div class='panel panel-default'>
+            <div class='panel-heading'>
+              <h3 class='panel-title'>cameronstanley.com</h3>
+            </div>
             <div class='panel-body'>
-              <h3>cameronstanley.com</h3>
               <p>My software engineering blog and portfolio.</p>
+              <p>
+                <a href='{{ site.baseurl }}'><span class='fa fa-home'></span></a>
+                <a href='https://github.com/cameronstanley/cameronstanley.github.io'><span class='fa fa-github'></span></a>
+              </p>
             </div>
           </div>
         </div>
         <div class='col-md-4'>
           <div class='panel panel-default'>
+            <div class='panel-heading'>
+              <h3 class='panel-title'>go-reddit</h3>
+            </div>
             <div class='panel-body'>
-              <h3>go-reddit</h3>
               <p>A Golang wrapper for the Reddit API.</p>
             </div>
           </div>
         </div>
         <div class='col-md-4'>
           <div class='panel panel-default'>
+            <div class='panel-heading'>
+              <h3 class='panel-title'>Path of the Strong</h3>
+            </div>
             <div class='panel-body'>
-              <h3>Path of the Strong</h3>
               <p>Rails app for managing workouts.</p>
             </div>
           </div>
         </div>
         <div class='col-md-4'>
           <div class='panel panel-default'>
+            <div class='panel-heading'>
+              <h3 class='panel-title'>JavaTetris</h3>
+            </div>
             <div class='panel-body'>
-              <h3>JavaTetris</h3>
               <p>Tetris clone implemented with Java and LWJGL. Features single and network multiplayer game modes.</p>
             </div>
           </div>
