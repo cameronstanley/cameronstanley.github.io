@@ -4874,12 +4874,12 @@ button.list-group-item-danger {
   border-color: #ddd; }
   .panel-default > .panel-heading {
     color: #333333;
-    background-color: #f5f5f5;
+    background-color: #3F627F;
     border-color: #ddd; }
     .panel-default > .panel-heading + .panel-collapse > .panel-body {
       border-top-color: #ddd; }
     .panel-default > .panel-heading .badge {
-      color: #f5f5f5;
+      color: #3F627F;
       background-color: #333333; }
   .panel-default > .panel-footer + .panel-collapse > .panel-body {
     border-bottom-color: #ddd; }
@@ -8433,6 +8433,19 @@ a.navbar-logo {
 @media (max-width: 768px) {
   .page-header .breadcrumb {
     float: none; } }
+
+h3.panel-title {
+  color: #CAE7FF;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center; }
+
+.panel-body p {
+  font-size: 1.5rem;
+  text-align: none; }
+
+.panel-body a.icon-link {
+  font-size: 3rem; }
 
 h2.post-title {
   color: #65737F;
