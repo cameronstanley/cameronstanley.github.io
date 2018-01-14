@@ -8187,7 +8187,7 @@ a.navbar-logo {
     color: #CAE7FF; }
 
 .navbar-inverse .navbar-nav > li > a {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: 'Arimo', sans-serif; }
   .navbar-inverse .navbar-nav > li > a .fa {
     color: #FFF; }
@@ -8469,8 +8469,8 @@ h2.post-title {
   color: #999;
   padding: 0; }
 .post-body li {
-  font-size: 2rem;
-  color: #666; }
+  font-size: 1.75rem;
+  color: #777; }
 .post-body img {
   padding: 10px 0; }
 .post-body em {

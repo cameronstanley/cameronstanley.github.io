@@ -5,9 +5,53 @@
     <description>Creating things and writing about them.</description>
     <link>http://cameronstanley.com/</link>
     <atom:link href="http://cameronstanley.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 13 Jan 2018 21:54:58 -0600</pubDate>
-    <lastBuildDate>Sat, 13 Jan 2018 21:54:58 -0600</lastBuildDate>
+    <pubDate>Sun, 14 Jan 2018 08:14:07 -0600</pubDate>
+    <lastBuildDate>Sun, 14 Jan 2018 08:14:07 -0600</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Announcing All Green for iOS and Android</title>
+        <description>&lt;p&gt;I recently had some time over the holidays and decided to build a mobile app. At &lt;a href=&quot;https://www.fleetio.com/&quot;&gt;Fleetio&lt;/a&gt;, we use &lt;a href=&quot;https://circleci.com/&quot;&gt;Circle CI&lt;/a&gt; to automatically run our test suites after every commit. I thought it would be useful to be able to monitor the status of my projects on the go, so I set out to create something to solve that problem. As a result, my mobile app All Green is now live in both the &lt;a href=&quot;https://itunes.apple.com/us/app/all-green/id1252330663?mt=8&quot;&gt;App Store&lt;/a&gt; and &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.cameronstanley.all_green&quot;&gt;Google Play&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;All Green is the best way to stay up-to-date on the build statuses of projects being tested through Circle CI. Check failing builds and quickly identify failing tests to keep your projects in the green.&lt;/p&gt;
+
+&lt;p&gt;Features:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;List recent builds for all their projects&lt;/li&gt;
+  &lt;li&gt;View build status and details&lt;/li&gt;
+  &lt;li&gt;Retry failed builds&lt;/li&gt;
+  &lt;li&gt;Cancel currently running builds&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-md-6&quot;&gt;
+    &lt;img src=&quot;/assets/all-green-screenshot-1.png&quot; class=&quot;img-responsive&quot; /&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;col-md-6&quot;&gt;
+    &lt;img src=&quot;/assets/all-green-screenshot-2.png&quot; class=&quot;img-responsive&quot; /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I would greatly appreciate any feedback you on any bugs encountered or features that would improve the app!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 13 Jan 2018 00:00:00 -0600</pubDate>
+        <link>http://cameronstanley.com/2018/01/13/announcing-all-green-for-ios-and-android.html</link>
+        <guid isPermaLink="true">http://cameronstanley.com/2018/01/13/announcing-all-green-for-ios-and-android.html</guid>
+        
+        <category>ios</category>
+        
+        <category>android</category>
+        
+        <category>ci</category>
+        
+        
+      </item>
     
       <item>
         <title>Go - First Impressions</title>
