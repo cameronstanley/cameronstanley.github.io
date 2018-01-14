@@ -1,6 +1,6 @@
 .media-heading > h3 > a {
   color: $quinary-color;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
 
   &:hover {
@@ -9,12 +9,14 @@
 }
 
 .media-body {
+  font-weight: 400;
+
   p.media-meta {
     font-size: 1.5rem;
     color: #999;
   }
 
   p.media-text {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 }

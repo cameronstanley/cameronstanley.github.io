@@ -14,17 +14,24 @@ comments: true
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="post-body">
+  <div class="post-body">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
         <p class="post-meta">
           <span class="fa fa-calendar"></span>
           {{ page.date | date: "%b %-d, %Y" }}
+          {% if page.tags.size > 0 %}
+            <span class="pull-right">
+              {% for tag in page.tags %}
+                <span class="label label-primary">{{ tag }}</span>
+              {% endfor %}
+            </span>
+          {% endif %}
         </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
         {{ content }}
       </div>
     </div>
