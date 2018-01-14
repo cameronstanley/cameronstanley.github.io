@@ -4,7 +4,7 @@ Jekyll project for my personal blog and portfolio at [cameronstanley.com](camero
 ## Build Instructions for Deploying to GitHub pages
 ``` bash
 git checkout source
-jekyll build
+JEKYLL_ENV=production jekyll build
 git checkout master
 cp -R _site/* .
 git add .
