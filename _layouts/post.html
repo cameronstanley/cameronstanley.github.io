@@ -39,7 +39,9 @@ comments: true
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <hr />
-      {% include comments.html %} 
+      {% if jekyll.environment == "production" %}
+        {% include comments.html %} 
+      {% endif %}
     </div>
   </div>
 </div>
