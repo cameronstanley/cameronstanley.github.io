@@ -8089,14 +8089,14 @@ body {
 /* Sections */
 .container-about {
   font-family: 'Arimo', sans-serif;
-  padding: 80px 35px;
+  padding: 80px 20px;
   background-color: #fff; }
   .container-about h3 {
     color: #3F627F;
     font-size: 3rem; }
   .container-about p {
     color: #777;
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     text-align: justify; }
 
 .container-content {
@@ -8412,16 +8412,18 @@ a.navbar-logo {
 
 .media-heading > h3 > a {
   color: #649DCC;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700; }
   .media-heading > h3 > a:hover {
     color: #7EC4FF; }
 
-.media-body p.media-meta {
-  font-size: 1.5rem;
-  color: #999; }
-.media-body p.media-text {
-  font-size: 2rem; }
+.media-body {
+  font-weight: 400; }
+  .media-body p.media-meta {
+    font-size: 1.5rem;
+    color: #999; }
+  .media-body p.media-text {
+    font-size: 1.75rem; }
 
 .page-header h2 {
   font-size: 3rem;
@@ -8453,14 +8455,14 @@ h2.post-title {
   font-weight: 700; }
 
 .post-body h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #649DCC; }
 .post-body h2 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   color: #649DCC; }
 .post-body p {
-  font-size: 2rem;
+  font-size: 1.75rem;
   padding: 10px 0; }
 .post-body p.post-meta {
   font-size: 1.5rem;
