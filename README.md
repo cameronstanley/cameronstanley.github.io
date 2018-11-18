@@ -1,6 +1,12 @@
 # cameronstanley.github.io
 Jekyll project for my personal blog and portfolio at [cameronstanley.com](cameronstanley.com).
 
+## Getting Started
+``` bash
+gem install jekyll
+jekyll serve
+```
+
 ## Build Instructions for Deploying to GitHub pages
 ``` bash
 git checkout source
