@@ -5,8 +5,8 @@
     <description>Creating things and writing about them.</description>
     <link>http://cameronstanley.com/</link>
     <atom:link href="http://cameronstanley.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 10 Jan 2019 07:38:16 -0500</pubDate>
-    <lastBuildDate>Thu, 10 Jan 2019 07:38:16 -0500</lastBuildDate>
+    <pubDate>Mon, 14 Jan 2019 08:55:24 -0600</pubDate>
+    <lastBuildDate>Mon, 14 Jan 2019 08:55:24 -0600</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -18,7 +18,7 @@
 
 &lt;p&gt;It may seem odd at first to take a five minute break twice per hour, but it’s highly likely you are already wasting significantly more time without realizing it. Breaks punctuate tasks and allow your mind to reset before focusing on something new. By using constraints to your advantage, habitual tasks like checking email or Slack, browsing Reddit, or just getting up and walking around are limited to a fixed set of time.&lt;/p&gt;
 
-&lt;p&gt;Traditonally a physical kitchen timer is used to track the 25/5/20 minute intervals, but setting one on your phone or using one of the many popular apps or websites work just as well (I personally recommend (Tomato Timer)[https://tomato-timer.com/]). If a task is completed before the timer goes off, you can either use the remaining time to start on the next task or improve on your work in some way. This could come in the form of documentation, testing, or just mentally reviewing what was done.&lt;/p&gt;
+&lt;p&gt;Traditonally a physical kitchen timer is used to track the 25/5/20 minute intervals, but setting one on your phone or using one of the many popular apps or websites work just as well (I personally recommend &lt;a href=&quot;https://tomato-timer.com/&quot;&gt;Tomato Timer&lt;/a&gt;). If a task is completed before the timer goes off, you can either use the remaining time to start on the next task or improve on your work in some way. This could come in the form of documentation, testing, or just mentally reviewing what was done.&lt;/p&gt;
 
 &lt;h1 id=&quot;why-does-it-work&quot;&gt;Why Does It Work?&lt;/h1&gt;
 &lt;p&gt;Think about the conditions under which you complete your best work. Chances are it’s when you have few distractions, your tasks are clearly defined, and you have momentum carrying you through difficult problems and procrastination. The Pomodoro technique provides a framework for eliminating these hurdles to accomplish more.&lt;/p&gt;
@@ -37,9 +37,9 @@
 &lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;If you want to get more done, I highly recommend at least giving the Pomodoro technique a try. For one week, plan the tasks you wish to accomplish each day and iterate through Pomodoros. You will be surprised what you can complete by adding some simple structure to your workflow, breaking down tasks into clearly defined components, and limiting distractions.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 10 Jan 2019 00:00:00 -0500</pubDate>
-        <link>http://cameronstanley.com/2019/01/10/productivity-with-pomodoro.html</link>
-        <guid isPermaLink="true">http://cameronstanley.com/2019/01/10/productivity-with-pomodoro.html</guid>
+        <pubDate>Sun, 13 Jan 2019 00:00:00 -0600</pubDate>
+        <link>http://cameronstanley.com/2019/01/13/productivity-with-pomodoro.html</link>
+        <guid isPermaLink="true">http://cameronstanley.com/2019/01/13/productivity-with-pomodoro.html</guid>
         
         <category>productivity</category>
         
@@ -77,7 +77,7 @@
 
 &lt;p&gt;I would greatly appreciate any feedback you on any bugs encountered or features that would improve the app!&lt;/p&gt;
 </description>
-        <pubDate>Sat, 13 Jan 2018 00:00:00 -0500</pubDate>
+        <pubDate>Sat, 13 Jan 2018 00:00:00 -0600</pubDate>
         <link>http://cameronstanley.com/2018/01/13/announcing-all-green-for-ios-and-android.html</link>
         <guid isPermaLink="true">http://cameronstanley.com/2018/01/13/announcing-all-green-for-ios-and-android.html</guid>
         
@@ -155,7 +155,7 @@
 
 &lt;p&gt;&lt;em&gt;Go Gopher created by Renee French and licensed under &lt;a href=&quot;https://creativecommons.org/licenses/by/3.0/us/&quot;&gt;Creative Commons Attributions 3.0&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 </description>
-        <pubDate>Sat, 05 Nov 2016 00:00:00 -0400</pubDate>
+        <pubDate>Sat, 05 Nov 2016 00:00:00 -0500</pubDate>
         <link>http://cameronstanley.com/2016/11/05/go-first-impressions.html</link>
         <guid isPermaLink="true">http://cameronstanley.com/2016/11/05/go-first-impressions.html</guid>
         
@@ -192,7 +192,7 @@
 
 &lt;p&gt;Cheers!&lt;/p&gt;
 </description>
-        <pubDate>Tue, 09 Feb 2016 14:30:00 -0500</pubDate>
+        <pubDate>Tue, 09 Feb 2016 13:30:00 -0600</pubDate>
         <link>http://cameronstanley.com/2016/02/09/rubygems-error.html</link>
         <guid isPermaLink="true">http://cameronstanley.com/2016/02/09/rubygems-error.html</guid>
         
@@ -245,7 +245,7 @@ cp glyphicons_pro/glyphicons/web/html_css/fonts/&lt;span class=&quot;k&quot;&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
-        <pubDate>Fri, 14 Aug 2015 06:30:00 -0400</pubDate>
+        <pubDate>Fri, 14 Aug 2015 05:30:00 -0500</pubDate>
         <link>http://cameronstanley.com/2015/08/14/using-glyphicons-pro-with-rails.html</link>
         <guid isPermaLink="true">http://cameronstanley.com/2015/08/14/using-glyphicons-pro-with-rails.html</guid>
         
@@ -262,7 +262,7 @@ cp glyphicons_pro/glyphicons/web/html_css/fonts/&lt;span class=&quot;k&quot;&gt;
 
 &lt;p&gt;The plan is to churn out at least one entry per week, so be sure to keep an eye out for updates.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 28 May 2015 11:15:39 -0400</pubDate>
+        <pubDate>Thu, 28 May 2015 10:15:39 -0500</pubDate>
         <link>http://cameronstanley.com/2015/05/28/first.html</link>
         <guid isPermaLink="true">http://cameronstanley.com/2015/05/28/first.html</guid>
         
