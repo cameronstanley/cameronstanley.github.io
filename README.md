@@ -4,6 +4,7 @@ Jekyll project for my personal blog and portfolio at [cameronstanley.com](camero
 ## Getting Started
 ``` bash
 gem install jekyll
+bundle install
 bundle exec jekyll serve
 ```
 
